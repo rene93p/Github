@@ -113,7 +113,9 @@ const Angebot = () => {
               <Link href="angebot">Zurück</Link>
             </Button>
           </div>
-          <Button type="submit">Weiter</Button>
+          <Button type="submit">
+            <Link href="beschreibung">Weiter</Link>
+          </Button>
         </CardFooter>
       </Card>
     </div>
