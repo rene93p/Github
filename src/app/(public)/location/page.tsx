@@ -14,6 +14,17 @@ import { Checkbox } from "@/components/ui/checkbox";
 import Link from "next/link";
 import NumberInput from "@/components/ui/number";
 import { CalendarForm } from "@/components/ui/calendarInput";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
 
 const Angebot = () => {
   return (
@@ -67,7 +78,7 @@ const Angebot = () => {
               </div>
               <div className="flex flex-col space-y-1.5 flex-1">
                 <Label htmlFor="datum">Datum</Label>
-                <CalendarForm></CalendarForm>
+                <CalendarForm />
               </div>
             </div>
 
@@ -106,9 +117,30 @@ const Angebot = () => {
 
         <CardFooter className="flex justify-between">
           <div className="space-x-1.5">
-            <Button variant="outline">
-              <Link href="home">Abbrechen</Link>
-            </Button>
+            <AlertDialog>
+              <AlertDialogTrigger>
+                <Button variant="outline">Abbrechen</Button>
+              </AlertDialogTrigger>
+              <AlertDialogContent>
+                <AlertDialogHeader>
+                  <AlertDialogTitle>
+                    Möchtest du wirklich abbrechen?
+                  </AlertDialogTitle>
+                  <AlertDialogDescription>
+                    Wenn du jetzt abbrichst, weden alle bisher getätigten
+                    Eingaben verworfen und es wird kein Angebot angefordert.
+                  </AlertDialogDescription>
+                </AlertDialogHeader>
+                <AlertDialogFooter>
+                  <AlertDialogCancel>
+                    <Link href="home">Abbrechen</Link>
+                  </AlertDialogCancel>
+                  <AlertDialogAction>
+                    Mit Bearbeitung vortfahren
+                  </AlertDialogAction>
+                </AlertDialogFooter>
+              </AlertDialogContent>
+            </AlertDialog>
             <Button variant="outline">
               <Link href="angebot">Zurück</Link>
             </Button>
